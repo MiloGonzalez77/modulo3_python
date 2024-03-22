@@ -28,3 +28,6 @@ eliminar = genero.pop("Botota")
 print(eliminar) # mujer
 print(genero) # {'Juan': 'hombre', 'Juana': 'mujer', 'Pepe': 'hombre'}
 print("-------")
+
+#contar elemento de un diccionario
+print(len(genero)) #3

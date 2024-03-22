@@ -62,3 +62,48 @@ print(notas) # {'Camila': 3, 'Felipe': 7, 'Pepe': 5, 'Juan': 7, 'Alexis': 6, 'Ya
 #CUIDADO: Colision de igualdad de llaves.
 print("---------")
 
+#Metodo .get()
+print(notas.get("Camila")) #3
+#.get() con control de error
+print(notas.get("Lucho","Valor no encontrado")) #Valor no encontrado -por default.
+print(notas2.get("Goku")) #None
+
+prueba = notas.get("Julio")
+print(prueba) #None
+print(type(prueba)) #<class 'NoneType'>
+print("-------")
+
+#agregar con metodo set default
+notas.setdefault("Lucas",10)
+print(notas) #{'Camila': 3, 'Felipe': 7, 'Pepe': 5, 'Juan': 7, 'Alexis': 6, 'Yasna': 6, 'Lucas': 10}
+notas.setdefault("Lucas",2)
+#si la clave existe retorna el valor actual y no lo reemplaza
+print(notas) #{'Camila': 3, 'Felipe': 7, 'Pepe': 5, 'Juan': 7, 'Alexis': 6, 'Yasna': 6, 'Lucas': 10}
+print("-------")
+notas.setdefault("Valeria")
+print(notas) # {'Camila': 3, 'Felipe': 7, 'Pepe': 5, 'Juan': 7, 'Alexis': 6, 'Yasna': 6, 'Lucas': 10, 'Valeria': None}
+notas["Valeria"]=6
+print(notas) # {'Camila': 3, 'Felipe': 7, 'Pepe': 5, 'Juan': 7, 'Alexis': 6, 'Yasna': 6, 'Lucas': 10, 'Valeria': 6}
+print("-------")
+
+### ELIMINAR Y RASPALÑDAR EN OTRO DICCIONARIO.
+eliminados = {}
+# eliminados = eliminados.setdefault(notas.pop("Pepe")) --->no resulta
+eliminados["Pepe"]=notas.pop("Pepe") #---> eliminamos pepe desde notas y guardamos en diccionario eliminados.
+print(notas) #{'Camila': 3, 'Felipe': 7, 'Juan': 7, 'Alexis': 6, 'Yasna': 6, 'Lucas': 10, 'Valeria': 6}
+print(eliminados) #{'Pepe': 5}
+print("--------")
+
+tupla1 = notas.popitem() #elimina el ultimo elemento del diccionario y devuelve la tupla (clave:valor) -la tupla es similar a la lista pero inmutable //no se puede modificar
+#print(notas.popitem()) #('Lucas', 10)
+print(notas) #{'Camila': 3, 'Felipe': 7, 'Juan': 7, 'Alexis': 6, 'Yasna': 6}
+print(" ")
+print(tupla1[0]) # Valeria
+print(tupla1[1]) # 6
+#tupla1[1]="mishi"
+#print(tupla1[1]) - TypeError: 'tuple' object does not support item assignment
+print("--------")
+
+notas.clear() #elimina los elementos dejando diccioanrio vacio
+print(notas) #{}
+print("--------")
